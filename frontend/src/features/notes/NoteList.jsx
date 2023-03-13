@@ -168,7 +168,7 @@ const NoteList = () => {
       setFilterError(true);
       return null; //
     }
-    setDateFilter({ fromDate, toDate });
+    setDateFilter({ fromDate, toDate }); ////runs useQuery again
     handleCloseD();
   };
 
@@ -178,7 +178,8 @@ const NoteList = () => {
   const handleClearFilter = () => {
     setFromDate("");
     setToDate("");
-    setFilterError(""); //runs useQuery again
+    setDateFilter({ fromDate: "", toDate: "" }); //runs useQuery again
+    setFilterError(false);
   };
 
   /* ----------------------------------------
@@ -203,7 +204,7 @@ const NoteList = () => {
     setNoteList(newData);
     setBulkCheck(!bulkCheck);
   };
-  console.log(error);
+  
   //feedback
   useEffect(() => {
     showToast({
